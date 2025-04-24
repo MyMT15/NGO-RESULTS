@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="report-card-print-wrapper">
+<link rel="stylesheet" href="{{ url_for('static', filename='print.css') }}" media="print">
 <div class="school-header">
     <div class="logo-container">
         <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="School Logo" class="logo">
@@ -69,7 +71,7 @@
     <strong>Qualified:</strong> {{ 'Yes' if qualified else 'No' }}
 </div>
 
-<div class="signatures">
+<div class="signatures" style="page-break-inside: avoid;">
     <div class="signature-line text-center">
         <hr>
         Sign. of ABS President
@@ -83,5 +85,6 @@
     <a href="{{ url_for('index') }}" class="btn btn-secondary ms-2">
         <i class="fas fa-arrow-left me-2"></i>Back to Search
     </a>
+</div>
 </div>
 {% endblock %} 

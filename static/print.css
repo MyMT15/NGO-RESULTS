@@ -1,0 +1,69 @@
+/* Stronger print rules to keep signature at bottom and avoid page break before/inside it */
+@media print {
+  body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    background: #fff;
+  }
+  .report-card-print-wrapper {
+    page-break-before: avoid !important;
+    page-break-after: avoid !important;
+    page-break-inside: avoid !important;
+    break-before: avoid !important;
+    break-after: avoid !important;
+    break-inside: avoid !important;
+    width: 100vw;
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: block;
+  }
+  .no-print {
+    display: none !important;
+  }
+  /* Remove all page breaks inside the report card */
+  * {
+    page-break-before: avoid !important;
+    page-break-after: avoid !important;
+    page-break-inside: avoid !important;
+    break-before: avoid !important;
+    break-after: avoid !important;
+    break-inside: avoid !important;
+  }
+  .signatures, .signature-line {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    page-break-before: auto !important;
+    page-break-after: auto !important;
+    display: block;
+    position: relative;
+  }
+  /* Prevent page break before the signature section */
+  .signatures {
+    text-align: right !important;
+    float: right !important;
+    width: 40%;
+    margin-top: 2em;
+    margin-right: 2em;
+    clear: both;
+    page-break-before: avoid !important;
+    break-before: avoid !important;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .signature-line {
+    text-align: right !important;
+  }
+  /* Try to keep last table row and signature together */
+  .marks-table tr.total-row {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+  /* Try to keep the last info and signature together */
+  .rank-qualified-info {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+}
