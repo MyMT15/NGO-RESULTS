@@ -153,7 +153,7 @@ def index():
                 if sid == student.id:
                     rank = idx
                     break
-            qualified = rank is not None and rank <= 30
+            qualified = rank is not None and rank <= 69
             return render_template('results.html', 
                                 student=student,
                                 max_marks=max_marks_dict,
