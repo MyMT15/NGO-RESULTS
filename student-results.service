@@ -1,0 +1,12 @@
+[Unit]
+Description=Student Results Flask Application
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/NGO
+Environment="PATH=/home/ubuntu/NGO/venv/bin"
+ExecStart=/home/ubuntu/NGO/venv/bin/gunicorn --workers 3 --bind 0.0.0.0:8000 app:app
+
+[Install]
+WantedBy=multi-user.target 

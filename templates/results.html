@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="school-header">
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="School Logo" class="logo">
+    </div>
+    <div class="school-name">AKSHARA BHARATAM SOCIETY</div>
+    <div class="school-motto">"While Democracy is the soul of a good society, Education is the Oxygen to it's Life."</div>
+</div>
+
+<div class="report-title">
+    ABS TALENT TEST-2025
+</div>
+
+{% if student.photo_url %}
+<img src="{{ student.photo_url }}" alt="Student Photo" class="student-photo">
+{% endif %}
+
+<div class="student-info">
+    <table>
+        <tr>
+            <td width="25%">Name of Student</td>
+            <td width="25%">: {{ student.name }}</td>
+            <td width="25%">Mobile Number</td>
+            <td width="25%">: {{ student.phone_number }}</td>
+        </tr>
+        <tr>
+            <td>Mother's Name</td>
+            <td>: {{ student.mother_name if student.mother_name else 'Not Available' }}</td>
+            <td>School Name</td>
+            <td>: {{ student.school_name if student.school_name else 'Not Available' }}</td>
+        </tr>
+        <tr>
+            <td>Father's Name</td>
+            <td>: {{ student.father_name if student.father_name else 'Not Available' }}</td>
+            <td>Village</td>
+            <td>: {{ student.village if student.village else 'Not Available' }}</td>
+        </tr>
+    </table>
+</div>
+
+<table class="marks-table">
+    <thead>
+        <tr>
+            <th>Subject</th>
+            <th>Obtained Marks</th>
+            <th>Maximum Marks</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for result in student.results %}
+        <tr>
+            <td>{{ result.subject }}</td>
+            <td>{{ result.marks|int }}</td>
+            <td>{{ max_marks[result.subject] if result.subject in max_marks else 20 }}</td>
+        </tr>
+        {% endfor %}
+        <tr class="total-row">
+            <td>Total Marks</td>
+            <td>{{ total_marks|int }}</td>
+            <td>{{ max_total }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="rank-qualified-info" style="margin-top: 1em;">
+    <strong>Rank:</strong> {{ rank if rank is defined else 'Not Available' }}<br>
+    <strong>Qualified:</strong> {{ 'Yes' if qualified else 'No' }}
+</div>
+
+<div class="signatures">
+    <div class="signature-line text-center">
+        <hr>
+        Sign. of ABS President
+    </div>
+</div>
+
+<div class="text-center mt-4 no-print">
+    <button class="btn btn-primary" onclick="window.print()">
+        <i class="fas fa-print me-2"></i>Print Report Card
+    </button>
+    <a href="{{ url_for('index') }}" class="btn btn-secondary ms-2">
+        <i class="fas fa-arrow-left me-2"></i>Back to Search
+    </a>
+</div>
+{% endblock %} 
