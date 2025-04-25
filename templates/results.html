@@ -71,10 +71,11 @@
     <strong>Qualified:</strong> {{ 'Yes' if qualified else 'No' }}
 </div>
 
-<div class="signatures" style="page-break-inside: avoid;">
-    <div class="signature-line text-center">
-        <hr>
-        Sign. of ABS President
+<div class="signatures" style="page-break-inside: avoid; text-align: right; margin-top: 40px;">
+    <div style="display: inline-block;">
+        <img src="{{ url_for('static', filename='signature_abs_president.png') }}" alt="ABS President Signature" style="height:50px; display: block; margin: 0 auto 1px auto;">
+        <div style="border-top: 1px solid #222; width: 160px; margin: 0 auto 1px auto;"></div>
+        <span style="font-weight: 500; font-size: 1rem;">Sign. of ABS President</span>
     </div>
 </div>
 

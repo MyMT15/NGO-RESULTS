@@ -1,4 +1,13 @@
-# Student Results Portal
+pip3 install -r requirements.txt<!-- Other result content -->
+
+<div style="text-align: right; margin-top: 40px;">
+    <div>
+        <img src="{{ url_for('static', filename='signature_abs_president.jpg') }}" alt="ABS President Signature" style="height:80px;">
+    </div>
+    <div>
+        <span>Sign. of ABS President</span>
+    </div>
+</div># Student Results Portal
 
 A web application for displaying student results using Flask and PostgreSQL.
 
